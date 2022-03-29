@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// 初始化REM, 当DOM加载完毕时，设置html元素的fontSize
+document.addEventListener("DOMContentLoaded", (e) => {
+  let fontSize = window.innerWidth / 37.5 ? 15 : window.innerWidth;
+  let html = document.documentElement;
+  html.style.fontSize = fontSize + "px";
+  console.log(html);
+  console.info("html-font-size: ", html.style.fontSize);
+});
+
+import Login from "./view/Login";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    Login,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
